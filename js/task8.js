@@ -21,3 +21,33 @@
 // </div>
 
 // <div id="boxes"></div>
+
+const inputNumRef = document.querySelector('input[type="number"]');
+const buttonRenderRef = document.querySelector('button[data-action="render"]');
+const mainDivRef = document.querySelector('#boxes');
+const buttonDestroyRef=document.querySelector('button[data-action="destroy"]');
+
+buttonRenderRef.addEventListener('click', createBoxes);
+buttonDestroyRef.addEventListener('click', destroyBoxes);
+ 
+
+
+function createBoxes(amount) {
+    amount = Number(inputNumRef.value);
+    let basicSize = 30;
+    for (let i = 0; i < amount; i += 1) {
+        const box = document.createElement('div');
+        let size = basicSize + i * 10;
+        box.setAttribute("style", `width: ${size}px; height: ${size}px; background-color: rgba(${random()},${random()}, ${random()})`);
+        mainDivRef.append(box);
+    }
+}
+
+function random() {
+  return Math.floor(Math.random() * 256);
+}
+
+function destroyBoxes() {
+    mainDivRef.innerHTML = '';
+}
+
