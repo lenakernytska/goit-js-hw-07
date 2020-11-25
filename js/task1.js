@@ -8,3 +8,4 @@ categories.forEach((category =>{
   console.log(`Категория: ${titleRef.textContent}\nКоличество элементов:${elements.length}`)
 }))
 
+
